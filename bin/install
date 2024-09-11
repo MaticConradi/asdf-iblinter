@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+DOWNLOAD_URL="https://github.com/IBDecodable/IBLinter/releases/download/$ASDF_INSTALL_VERSION/portable_iblinter.zip"
+
+# make a temporary download directory with a cleanup hook
+readonly TMP_DOWNLOAD_DIR="$(mktemp -d -t "asdf_iblinter_XXXXXX")"
+trap 'rm -rf "${TMP_DOWNLOAD_DIR?}"' EXIT
+
+IBLINTER_DOWNLOAD_PATH="$TMP_DOWNLOAD_DIR/iblinter.zip"
+
+# Download the zipped iblinter file
+mkdir -p "$ASDF_INSTALL_PATH/bin"
+curl -s "$DOWNLOAD_URL" -L -o "$IBLINTER_DOWNLOAD_PATH" 2>/dev/null
+
+# unzip iblinter from the archive into the bin folder
+unzip -o "$IBLINTER_DOWNLOAD_PATH" iblinter -d "$ASDF_INSTALL_PATH/bin" >/dev/null
