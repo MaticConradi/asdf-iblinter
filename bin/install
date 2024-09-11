@@ -12,8 +12,7 @@ trap 'rm -rf "${TMP_DOWNLOAD_DIR?}"' EXIT
 IBLINTER_DOWNLOAD_PATH="$TMP_DOWNLOAD_DIR/iblinter.zip"
 
 # Download the zipped iblinter file
-mkdir -p "$ASDF_INSTALL_PATH/bin"
 curl -s "$DOWNLOAD_URL" -L -o "$IBLINTER_DOWNLOAD_PATH" 2>/dev/null
 
 # unzip iblinter from the archive into the bin folder
-unzip -o "$IBLINTER_DOWNLOAD_PATH" iblinter -d "$ASDF_INSTALL_PATH/bin" >/dev/null
+unzip -o "$IBLINTER_DOWNLOAD_PATH" iblinter -d "$ASDF_INSTALL_PATH" >/dev/null
