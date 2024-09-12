@@ -15,4 +15,4 @@ IBLINTER_DOWNLOAD_PATH="$TMP_DOWNLOAD_DIR/iblinter.zip"
 curl -s "$DOWNLOAD_URL" -L -o "$IBLINTER_DOWNLOAD_PATH" 2>/dev/null
 
 # unzip iblinter from the archive into the bin folder
-unzip -o "$IBLINTER_DOWNLOAD_PATH" iblinter -d "$ASDF_INSTALL_PATH" >/dev/null
+unzip -o "$IBLINTER_DOWNLOAD_PATH" bin/iblinter -d "$ASDF_INSTALL_PATH" >/dev/null
